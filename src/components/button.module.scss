@@ -1,0 +1,12 @@
+@import "../styles/main.scss";
+
+div.wrapper {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  @media screen and (min-width: 60em) { text-align: left; }
+}
+
+.link {
+  @extend .button-base;
+}

@@ -1,0 +1,7 @@
+.gallery {
+  margin: 4rem 0 6rem;
+  :global(.react-photo-gallery--gallery) {
+    img { border-radius: 6px; transition: transform 0.4s var(--ease-out), opacity 0.3s; }
+    > div > img:hover { transform: scale(1.02); opacity: 0.92; }
+  }
+}

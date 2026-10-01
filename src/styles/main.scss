@@ -1,0 +1,297 @@
+// ********** Tachyons -this includes normalize.css
+@import "../../node_modules/tachyons-sass/tachyons.scss";
+
+// ********** Nueva Paleta Boutique Minimalista - Hotel Mainumby
+// Inspiración: Aman, Edition, Soho House - neutros cálidos, piedra, lino
+// Antes: #e6eaf3, #FEA82F, #FFC288, #FCECDD
+// Ahora: tonos tierra sobrios, blanco roto cálido, acento dorado desaturado
+
+// --- Variables principales (mantienen nombres antiguos para compatibilidad pero con nuevos valores) ---
+$color-primary: #FDFBF7;          // Blanco roto cálido - fondos principales (antes #e6eaf3 frio)
+$color-secondary: #C2A47A;         // Dorado desaturado / arena - acento sobrio (antes #FEA82F naranja saturado)
+$color-tertiary: #8B7355;          // Taupe medio - secundario profundo
+$color-tertiary-light: #F5F0E8;    // Beige muy claro - fondos alternos
+$color-stone: #E8E0D5;             // Piedra clara - bordes sutiles
+$color-charcoal: #1C1C1E;          // Casi negro cálido - texto principal
+$color-muted: #6B6560;             // Gris cálido - texto secundario
+$color-cream-dark: #EDE6DA;        // Crema oscuro - separadores
+
+// ********** CSS Custom Properties para uso moderno
+:root {
+  --color-bg: #FDFBF7;
+  --color-bg-alt: #F5F0E8;
+  --color-bg-dark: #1C1C1E;
+  --color-text: #1C1C1E;
+  --color-text-muted: #6B6560;
+  --color-text-light: #9A9590;
+  --color-accent: #C2A47A;
+  --color-accent-hover: #A68B5B;
+  --color-border: #E8E0D5;
+  --color-stone: #E8E0D5;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "DM Sans", "Helvetica Neue", sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+// ********** Fonts
+@font-face {
+  font-family: 'Harlow-Solid-Italic';
+  src: local('Harlow-Solid-Italic'), 
+      url(/fonts/Harlow-Solid-Italic.ttf.woff) format('woff'),
+      url(/fonts/Harlow-Solid-Italic.ttf.svg#Harlow-Solid-Italic) format('svg'),
+      url(/fonts/Harlow-Solid-Italic.ttf.eot),
+      url(/fonts/Harlow-Solid-Italic.ttf.eot?#iefix) format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+// ********** Base
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @extend .bg-white;
+  background-color: var(--color-bg) !important;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 60em) {
+  body { font-size: 17px; }
+}
+
+p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.2em;
+}
+
+li {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+// Blockquote - minimalista, editorial
+blockquote {
+  color: var(--color-text);
+  border-left: 2px solid var(--color-accent);
+  background: transparent;
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  position: relative;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+
+blockquote p {
+  @extend .fw4;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-text);
+  text-align: left;
+  margin: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+blockquote:before {
+  display: none; // eliminar comilla gigante decorativa
+}
+
+// ********** Standard Page Width - más aire
+.standard-page-width {
+  @extend .w-100;
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 30em) { width: 92%; }
+  @media screen and (min-width: 60em) { width: 88%; }
+}
+
+// ********** Custom Classes
+
+.bg-primary {
+  background-color: var(--color-bg) !important;
+}
+
+.bg-very-light-gray {
+  background-color: var(--color-bg-alt) !important;
+}
+
+// text colors
+.text-color-secondary {
+  color: var(--color-accent) !important;
+}
+
+// custom headings - editorial serif
+h1.page-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2.5rem;
+  @media screen and (min-width: 60em) { font-size: 3.5rem; }
+}
+
+h2.section-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  &:after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-accent);
+    margin: 1rem auto 0;
+  }
+  @media screen and (min-width: 60em) { font-size: 2.4rem; }
+}
+
+h3.section-sub-heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+
+// links and buttons - minimalistas
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.2s var(--ease-out);
+  &:hover { color: var(--color-accent); }
+}
+
+.button-base {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.95rem 2.2rem;
+  border: 1px solid var(--color-text);
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 0; // recto, boutique
+  transition: all 0.35s var(--ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+    transform: translateY(-1px);
+  }
+  &:active { transform: translateY(0); }
+}
+
+// Botón alternativo claro (para fondos oscuros)
+.button-light {
+  @extend .button-base;
+  border-color: rgba(255,255,255,0.9);
+  color: white;
+  &:hover {
+    background: white;
+    color: var(--color-text);
+  }
+}
+
+.icon-base {
+  color: var(--color-text-muted);
+  transition: color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  &:hover {
+    color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+}
+
+.icon {
+  @extend .icon-base;
+  font-size: 1.15rem;
+}
+
+.icon-large {
+  @extend .icon-base;
+  font-size: 1.35rem;
+}
+
+// ********** Reveal on Scroll (microinteracción)
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+// ********** Imagen hover sutil
+.img-zoom {
+  overflow: hidden;
+  img, .gatsby-image-wrapper img {
+    transition: transform 0.6s var(--ease-out) !important;
+  }
+  &:hover img { transform: scale(1.04); }
+}
+
+// ********** Selección de texto
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
